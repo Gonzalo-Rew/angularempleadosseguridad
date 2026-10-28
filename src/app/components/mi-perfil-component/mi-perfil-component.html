@@ -1,1 +1,8 @@
-<p>mi-perfil-component works!</p>
+<h1>Mi Perfil</h1>
+@if (empleado) {
+  <p>{{ empleado.idEmpleado }}</p>
+  <p>{{ empleado.apellido }}</p>
+  <p>{{ empleado.oficio }}</p>
+  <p>{{ empleado.salario }}</p>
+  <p>{{ empleado.director }}</p>
+}

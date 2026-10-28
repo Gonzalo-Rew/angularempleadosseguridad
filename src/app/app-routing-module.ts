@@ -4,11 +4,17 @@ import { SubordinadosComponent } from './components/subordinados-component/subor
 import { MiPerfilComponent } from './components/mi-perfil-component/mi-perfil-component';
 import { LoginComponent } from './components/login-component/login-component';
 
-const routes: Routes = [
+let routes: Routes = [
+  { redirectTo: 'login', pathMatch: 'full', path: '' },
   { path: 'login', component: LoginComponent },
-  { path: 'perfil', component: MiPerfilComponent },
-  { path: 'subordinados', component: SubordinadosComponent },
 ];
+if (sessionStorage.getItem('authToken')) {
+  routes = [
+    { redirectTo: 'perfil', pathMatch: 'full', path: '' },
+    { path: 'perfil', component: MiPerfilComponent },
+    { path: 'subordinados', component: SubordinadosComponent },
+  ];
+}
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

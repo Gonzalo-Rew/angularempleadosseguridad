@@ -12,6 +12,6 @@ export class AuthService {
     const url = `${this.url}auth/login`;
     const body = { username, password };
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return firstValueFrom(this._http.post(url, JSON.stringify(body), { headers }));
+    return firstValueFrom(this._http.post<string>(url, JSON.stringify(body), { headers }));
   }
 }

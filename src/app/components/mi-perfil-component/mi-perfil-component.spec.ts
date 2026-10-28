@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { EmpleadosService } from '../../services/empleados.service';
 import { MiPerfilComponent } from './mi-perfil-component';
 
 describe('MiPerfilComponent', () => {
@@ -8,6 +10,7 @@ describe('MiPerfilComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [MiPerfilComponent],
+      providers: [EmpleadosService, provideHttpClient()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MiPerfilComponent);

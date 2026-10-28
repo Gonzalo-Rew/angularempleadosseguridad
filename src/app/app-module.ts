@@ -9,11 +9,12 @@ import { MiPerfilComponent } from './components/mi-perfil-component/mi-perfil-co
 import { SubordinadosComponent } from './components/subordinados-component/subordinados-component';
 import { LoginComponent } from './components/login-component/login-component';
 import { AuthService } from './services/auth.service';
+import { EmpleadosService } from './services/empleados.service';
 
 @NgModule({
   declarations: [App, MenuComponent, MiPerfilComponent, SubordinadosComponent, LoginComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), AuthService],
+  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), AuthService, EmpleadosService],
   bootstrap: [App],
 })
 export class AppModule {}
