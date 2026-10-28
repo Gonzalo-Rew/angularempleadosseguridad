@@ -7,7 +7,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/app/models/empleado.js"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]
