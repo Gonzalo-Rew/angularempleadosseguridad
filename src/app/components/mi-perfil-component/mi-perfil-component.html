@@ -1,8 +1,30 @@
-<h1>Mi Perfil</h1>
-@if (empleado) {
-  <p>{{ empleado.idEmpleado }}</p>
-  <p>{{ empleado.apellido }}</p>
-  <p>{{ empleado.oficio }}</p>
-  <p>{{ empleado.salario }}</p>
-  <p>{{ empleado.director }}</p>
-}
+<main class="page-container">
+  <h1 class="h2 mb-4">Mi perfil</h1>
+  @if (empleado) {
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <span class="text-secondary d-block small">ID</span>
+            <span class="fw-semibold">{{ empleado.idEmpleado }}</span>
+          </div>
+          <div class="col-12 col-md-6">
+            <span class="text-secondary d-block small">Apellido</span>
+            <span class="fw-semibold">{{ empleado.apellido }}</span>
+          </div>
+          <div class="col-12 col-md-6">
+            <span class="text-secondary d-block small">Oficio</span>
+            <span class="fw-semibold">{{ empleado.oficio }}</span>
+          </div>
+          <div class="col-12 col-md-6">
+            <span class="text-secondary d-block small">Salario</span>
+            <span class="fw-semibold">{{ empleado.salario }}</span>
+          </div>
+          <div class="col-12 col-md-6">
+            <span class="text-secondary d-block small">Director</span>
+            <span class="fw-semibold">{{ empleado.director }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  }

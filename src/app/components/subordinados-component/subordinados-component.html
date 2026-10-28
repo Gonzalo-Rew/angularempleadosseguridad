@@ -1,1 +1,34 @@
-<p>subordinados-component works!</p>
+<main class="page-container">
+  <h1 class="h2 mb-4">Subordinados</h1>
+
+  @if (subordinados.length > 0) {
+    <div class="card border-0 shadow-sm">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Oficio</th>
+              <th scope="col">Salario</th>
+              <th scope="col">Director</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (subordinado of subordinados; track subordinado.idEmpleado) {
+              <tr>
+                <td>{{ subordinado.idEmpleado }}</td>
+                <td>{{ subordinado.apellido }}</td>
+                <td>{{ subordinado.oficio }}</td>
+                <td>{{ subordinado.salario }}</td>
+                <td>{{ subordinado.director }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  } @else {
+    <div class="alert alert-info" role="status">No hay subordinados disponibles.</div>
+  }
+</main>

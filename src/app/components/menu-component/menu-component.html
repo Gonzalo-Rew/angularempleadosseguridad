@@ -1,11 +1,12 @@
-<ul>
-    <li>
-        <a [routerLink]="'/perfil'" routerLinkActive='active'>Mi Perfil</a>
-    </li>
-    <li>
-        <a [routerLink]="'/subordinados'" routerLinkActive='active'>Subordinados</a>
-    </li>
-    <li>
-        <a [routerLink]="'/login'" routerLinkActive='active'>Login</a>
-    </li>
-</ul>
+@if (isAuthenticated()) {
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" [routerLink]="'/perfil'">Empleados</a>
+      <div class="navbar-nav">
+        <a class="nav-link" [routerLink]="'/perfil'" routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">Mi perfil</a>
+        <a class="nav-link" [routerLink]="'/subordinados'" routerLinkActive="active">Subordinados</a>
+      </div>
+    </div>
+  </nav>
+}

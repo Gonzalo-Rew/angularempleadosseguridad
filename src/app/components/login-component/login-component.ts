@@ -15,14 +15,18 @@ export class LoginComponent {
   constructor(
     private _authService: AuthService,
     private router: Router,
-  ) {}
+  ) {
+    this._authService.clearToken();
+  }
 
   async login(): Promise<void> {
     try {
       const token = await this._authService.getToken(this.username, this.password);
-      if (token) {
-        sessionStorage.setItem('authToken', token);
+      if (typeof token?.response === 'string' && token.response.trim()) {
+        sessionStorage.setItem('authToken', token.response);
         this.router.navigate(['/perfil']);
+      } else {
+        this.mensajeError = 'La respuesta de autenticación no contiene un token válido.';
       }
     }
     catch (error) {

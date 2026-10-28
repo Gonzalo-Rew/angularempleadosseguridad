@@ -17,4 +17,13 @@ export class EmpleadosService {
     });
     return firstValueFrom(this._http.get<Empleado>(url, { headers }));
   }
+
+  async getSubordinados(token: string): Promise<Empleado[]> {
+    const url = `${this.url}api/empleados/subordinados`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    return firstValueFrom(this._http.get<Empleado[]>(url, { headers }));
+  }
 }

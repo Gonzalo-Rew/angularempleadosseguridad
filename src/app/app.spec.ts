@@ -16,9 +16,11 @@ describe('App', () => {
   });
 
   it('should render the application menu', async () => {
+    sessionStorage.setItem('authToken', 'test-token');
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('app-menu-component')).toBeTruthy();
+    sessionStorage.removeItem('authToken');
   });
 });

@@ -17,7 +17,6 @@ export class MiPerfilComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('token', sessionStorage.getItem('authToken'));
     const token = sessionStorage.getItem('authToken');
     if (token) {
       this._empleadosService.getPerfilEmpleado(token).then((empleado) => {
