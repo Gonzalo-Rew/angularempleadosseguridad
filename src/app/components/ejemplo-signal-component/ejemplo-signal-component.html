@@ -1,0 +1,57 @@
+<main class="page-container signal-page">
+  <header class="page-heading">
+    <p class="page-eyebrow">Angular Signals</p>
+    <h1 class="page-title">Ejemplo de señales</h1>
+    <p class="page-subtitle">
+      Una demostración interactiva de un estado reactivo y un valor calculado.
+    </p>
+  </header>
+
+  <section class="surface-card signal-card" aria-labelledby="signal-title">
+    <div class="signal-card-header">
+      <div>
+        <span class="signal-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Estado reactivo activo
+        </span>
+        <h2 class="signal-title" id="signal-title">Contador interactivo</h2>
+        <p class="signal-description">
+          Incrementa el valor y observa cómo se actualiza automáticamente el resultado computado.
+        </p>
+      </div>
+      <div class="signal-symbol" aria-hidden="true">⌁</div>
+    </div>
+
+    <div class="signal-values">
+      <div class="value-panel value-panel-primary">
+        <span class="value-label">Valor actual</span>
+        <output class="value-number" aria-live="polite">{{ contador() }}</output>
+        <span class="value-caption">signal&lt;number&gt;</span>
+      </div>
+      <div class="value-operator" aria-hidden="true">× 2</div>
+      <div class="value-panel">
+        <span class="value-label">Valor doble</span>
+        <output class="value-number computed-number" aria-live="polite">{{ doble() }}</output>
+        <span class="value-caption">computed&lt;number&gt;</span>
+      </div>
+    </div>
+
+    <div class="signal-actions">
+      <button class="btn btn-primary btn-lg" type="button" (click)="incrementarContador()">
+        <span class="action-icon" aria-hidden="true">+</span>
+        Incrementar
+      </button>
+      <button class="btn btn-outline-secondary btn-lg" type="button" (click)="reiniciarContador()">
+        Reiniciar contador
+      </button>
+    </div>
+  </section>
+
+  <div class="signal-note">
+    <span class="note-icon" aria-hidden="true">i</span>
+    <p>
+      <strong>¿Qué está ocurriendo?</strong>
+      <span>El contador es una señal mutable y el valor doble se recalcula automáticamente mediante <code>computed()</code>.</span>
+    </p>
+  </div>
+</main>

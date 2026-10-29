@@ -1,0 +1,212 @@
+.signal-page {
+  max-width: 920px;
+}
+
+.signal-card {
+  overflow: hidden;
+}
+
+.signal-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+  border-bottom: 1px solid var(--app-border);
+}
+
+.signal-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  color: #248653;
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #35bd78;
+  box-shadow: 0 0 0 0.25rem rgba(53, 189, 120, 0.14);
+}
+
+.signal-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+
+.signal-description {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--app-muted);
+  line-height: 1.6;
+}
+
+.signal-symbol {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 1rem;
+  color: var(--app-primary);
+  background: #e9edff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.signal-values {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.value-panel {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid var(--app-border);
+  border-radius: 0.85rem;
+  background: #fbfcfe;
+}
+
+.value-panel-primary {
+  border-color: #cbd4ff;
+  background: #f3f5ff;
+}
+
+.value-label {
+  margin-bottom: 0.5rem;
+  color: var(--app-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.value-number {
+  color: var(--app-ink);
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.computed-number {
+  color: var(--app-primary);
+}
+
+.value-caption {
+  margin-top: 0.5rem;
+  color: var(--app-muted);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.75rem;
+}
+
+.value-operator {
+  color: var(--app-muted);
+  font-size: 0.9rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.signal-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0 2rem 2rem;
+}
+
+.signal-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex: 1;
+  font-weight: 650;
+}
+
+.action-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.signal-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid #dce3ff;
+  border-radius: 0.75rem;
+  color: #4c5875;
+  background: #f5f7ff;
+}
+
+.note-icon {
+  display: grid;
+  width: 1.35rem;
+  height: 1.35rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--app-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.signal-note p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.5rem;
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.signal-note code {
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+  color: var(--app-primary-dark);
+  background: #e9edff;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 575.98px) {
+  .signal-card-header {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .signal-symbol {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .signal-values {
+    gap: 0.5rem;
+    padding: 1.25rem;
+  }
+
+  .value-panel {
+    padding: 1rem 0.5rem;
+  }
+
+  .value-operator {
+    font-size: 0.75rem;
+  }
+
+  .signal-actions {
+    flex-direction: column;
+    padding: 0 1.25rem 1.5rem;
+  }
+}
