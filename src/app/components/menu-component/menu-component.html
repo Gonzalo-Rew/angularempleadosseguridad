@@ -6,9 +6,19 @@
         <span>Empleados</span>
       </a>
       <div class="navbar-nav app-nav">
-        <a class="nav-link" [routerLink]="'/perfil'" routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">Mi perfil</a>
-        <a class="nav-link" [routerLink]="'/subordinados'" routerLinkActive="active">Subordinados</a>
+        <a
+          class="nav-link"
+          [routerLink]="'/perfil'"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Mi perfil</a
+        >
+        <a class="nav-link" [routerLink]="'/subordinados'" routerLinkActive="active"
+          >Subordinados</a
+        >
+        <a class="nav-link" [routerLink]="'/signal'" routerLinkActive="active"
+          >Ejemplo de Señal: {{ _serviceSignal.contador() }}</a
+        >
       </div>
       <button class="btn btn-logout ms-auto" (click)="logout()">
         <span aria-hidden="true">↪</span>

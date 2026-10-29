@@ -4,12 +4,14 @@ import { SubordinadosComponent } from './components/subordinados-component/subor
 import { MiPerfilComponent } from './components/mi-perfil-component/mi-perfil-component';
 import { LoginComponent } from './components/login-component/login-component';
 import { AuthGuard } from './guards/auth-guard';
+import { EjemploSignalComponent } from './components/ejemplo-signal-component/ejemplo-signal-component';
 
 let routes: Routes = [
   { redirectTo: 'login', pathMatch: 'full', path: '' },
   { path: 'login', component: LoginComponent },
   { path: 'perfil', component: MiPerfilComponent, canActivate: [AuthGuard] },
   { path: 'subordinados', component: SubordinadosComponent, canActivate: [AuthGuard] },
+  { path: 'signal', component: EjemploSignalComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

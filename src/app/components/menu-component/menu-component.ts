@@ -1,7 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
+import { SignalService } from '../../services/service.signal';
+
 @Component({
   selector: 'app-menu-component',
   standalone: false,
@@ -10,6 +12,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class MenuComponent {
   protected readonly isAuthenticated = signal(false);
+  public _serviceSignal: SignalService = inject(SignalService);
+  public contador = this._serviceSignal.contador;
 
   constructor(
     private router: Router,
