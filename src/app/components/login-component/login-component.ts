@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { Login } from '../../models/login';
 
 @Component({
   selector: 'app-login-component',
@@ -9,22 +10,19 @@ import { Router } from '@angular/router';
   templateUrl: './login-component.html',
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  credenciales: Login = new Login('', '');
   mensajeError: string = '';
   constructor(
     private _authService: AuthService,
-    private router: Router,
-  ) {
-    this._authService.clearToken();
-  }
+    private _router: Router,
+  ) {}
 
   async login(): Promise<void> {
     try {
-      const token = await this._authService.getToken(this.username, this.password);
+      const token = await this._authService.getToken(this.credenciales);
       if (typeof token?.response === 'string' && token.response.trim()) {
         sessionStorage.setItem('authToken', token.response);
-        this.router.navigate(['/perfil']);
+        this._router.navigate(['/perfil']);
       } else {
         this.mensajeError = 'La respuesta de autenticación no contiene un token válido.';
       }

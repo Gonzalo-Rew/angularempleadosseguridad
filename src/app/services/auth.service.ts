@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { firstValueFrom } from 'rxjs';
+import { Login } from '../models/login';
 
 export interface AuthResponse {
   response: string;
@@ -22,9 +23,9 @@ export class AuthService {
     sessionStorage.removeItem('authToken');
   }
 
-  async getToken(username: string, password: string): Promise<AuthResponse> {
+  async getToken(login: Login): Promise<AuthResponse> {
     const url = `${this.url}auth/login`;
-    const body = { username, password };
+    const body = { username: login.userName, password: login.password };
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return firstValueFrom(this._http.post<AuthResponse>(url, JSON.stringify(body), { headers }));
   }

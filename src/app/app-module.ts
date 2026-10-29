@@ -10,11 +10,12 @@ import { SubordinadosComponent } from './components/subordinados-component/subor
 import { LoginComponent } from './components/login-component/login-component';
 import { AuthService } from './services/auth.service';
 import { EmpleadosService } from './services/empleados.service';
+import { AuthGuard } from './guards/auth-guard';
 
 @NgModule({
   declarations: [App, MenuComponent, MiPerfilComponent, SubordinadosComponent, LoginComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), AuthService, EmpleadosService],
+  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), AuthService, EmpleadosService, AuthGuard],
   bootstrap: [App],
 })
 export class AppModule {}

@@ -9,13 +9,13 @@
             <div class="mb-3">
               <label class="form-label" for="username">Usuario</label>
               <input class="form-control" type="text" id="username" name="username"
-                [(ngModel)]="username" required />
+                [(ngModel)]="credenciales.userName" required />
             </div>
 
             <div class="mb-4">
               <label class="form-label" for="password">Contraseña</label>
               <input class="form-control" type="password" id="password" name="password"
-                [(ngModel)]="password" required />
+                [(ngModel)]="credenciales.password" required />
             </div>
 
             @if (mensajeError) {

@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { SubordinadosComponent } from './components/subordinados-component/subordinados-component';
 import { MiPerfilComponent } from './components/mi-perfil-component/mi-perfil-component';
 import { LoginComponent } from './components/login-component/login-component';
+import { AuthGuard } from './guards/auth-guard';
 
 let routes: Routes = [
   { redirectTo: 'login', pathMatch: 'full', path: '' },
   { path: 'login', component: LoginComponent },
-  { path: 'perfil', component: MiPerfilComponent },
-  { path: 'subordinados', component: SubordinadosComponent },
+  { path: 'perfil', component: MiPerfilComponent, canActivate: [AuthGuard] },
+  { path: 'subordinados', component: SubordinadosComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
