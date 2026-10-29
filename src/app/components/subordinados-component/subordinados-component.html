@@ -1,11 +1,22 @@
 <main class="page-container">
-  <h1 class="h2 mb-4">Subordinados</h1>
+  <header class="page-heading">
+    <p class="page-eyebrow">Estructura de equipo</p>
+    <h1 class="page-title">Subordinados</h1>
+    <p class="page-subtitle">Consulta los empleados que forman parte de tu equipo.</p>
+  </header>
 
   @if (subordinados.length > 0) {
-    <div class="card border-0 shadow-sm">
+    <div class="surface-card team-card">
+      <div class="team-card-header">
+        <div>
+          <h2 class="team-title">Equipo directo</h2>
+          <p class="team-subtitle">Listado de empleados bajo tu supervisión</p>
+        </div>
+        <span class="team-count">{{ subordinados.length }}</span>
+      </div>
       <div class="table-responsive">
-        <table class="table table-striped table-hover align-middle mb-0">
-          <thead class="table-dark">
+        <table class="table team-table align-middle mb-0">
+          <thead>
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Apellido</th>
@@ -17,8 +28,8 @@
           <tbody>
             @for (subordinado of subordinados; track subordinado.idEmpleado) {
               <tr>
-                <td>{{ subordinado.idEmpleado }}</td>
-                <td>{{ subordinado.apellido }}</td>
+                <td><span class="id-badge">{{ subordinado.idEmpleado }}</span></td>
+                <td class="fw-semibold">{{ subordinado.apellido }}</td>
                 <td>{{ subordinado.oficio }}</td>
                 <td>{{ subordinado.salario }}</td>
                 <td>{{ subordinado.director }}</td>
@@ -29,6 +40,10 @@
       </div>
     </div>
   } @else {
-    <div class="alert alert-info" role="status">No hay subordinados disponibles.</div>
+    <div class="empty-state surface-card" role="status">
+      <div class="empty-icon" aria-hidden="true">—</div>
+      <h2>No hay subordinados disponibles</h2>
+      <p>Cuando tengas empleados asignados, aparecerán en este espacio.</p>
+    </div>
   }
 </main>

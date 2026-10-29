@@ -1,30 +1,40 @@
 <main class="page-container">
-  <h1 class="h2 mb-4">Mi perfil</h1>
+  <header class="page-heading">
+    <p class="page-eyebrow">Área personal</p>
+    <h1 class="page-title">Mi perfil</h1>
+    <p class="page-subtitle">Consulta la información asociada a tu cuenta de empleado.</p>
+  </header>
   @if (empleado) {
-    <div class="card border-0 shadow-sm">
-      <div class="card-body">
-        <div class="row g-3">
-          <div class="col-12 col-md-6">
-            <span class="text-secondary d-block small">ID</span>
-            <span class="fw-semibold">{{ empleado.idEmpleado }}</span>
-          </div>
-          <div class="col-12 col-md-6">
-            <span class="text-secondary d-block small">Apellido</span>
-            <span class="fw-semibold">{{ empleado.apellido }}</span>
-          </div>
-          <div class="col-12 col-md-6">
-            <span class="text-secondary d-block small">Oficio</span>
-            <span class="fw-semibold">{{ empleado.oficio }}</span>
-          </div>
-          <div class="col-12 col-md-6">
-            <span class="text-secondary d-block small">Salario</span>
-            <span class="fw-semibold">{{ empleado.salario }}</span>
-          </div>
-          <div class="col-12 col-md-6">
-            <span class="text-secondary d-block small">Director</span>
-            <span class="fw-semibold">{{ empleado.director }}</span>
-          </div>
+    <div class="surface-card profile-card">
+      <div class="profile-header">
+        <div class="profile-avatar" aria-hidden="true">ID</div>
+        <div>
+          <p class="profile-label">Ficha de empleado</p>
+          <h2 class="profile-heading">Información profesional</h2>
+        </div>
+      </div>
+      <div class="profile-details">
+        <div class="detail-item">
+          <span class="detail-label">ID</span>
+          <span class="detail-value">{{ empleado.idEmpleado }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Apellido</span>
+          <span class="detail-value">{{ empleado.apellido }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Oficio</span>
+          <span class="detail-value">{{ empleado.oficio }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Salario</span>
+          <span class="detail-value">{{ empleado.salario }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Director</span>
+          <span class="detail-value">{{ empleado.director }}</span>
         </div>
       </div>
     </div>
   }
+</main>

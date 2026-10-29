@@ -1,13 +1,19 @@
 @if (isAuthenticated()) {
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-semibold" [routerLink]="'/perfil'">Empleados</a>
-      <div class="navbar-nav">
+  <nav class="app-navbar">
+    <div class="navbar-inner">
+      <a class="navbar-brand app-brand" [routerLink]="'/perfil'">
+        <span class="brand-icon" aria-hidden="true">E</span>
+        <span>Empleados</span>
+      </a>
+      <div class="navbar-nav app-nav">
         <a class="nav-link" [routerLink]="'/perfil'" routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }">Mi perfil</a>
         <a class="nav-link" [routerLink]="'/subordinados'" routerLinkActive="active">Subordinados</a>
       </div>
-      <button class="btn btn-outline-light ms-auto" (click)="logout()">Cerrar sesión</button>
+      <button class="btn btn-logout ms-auto" (click)="logout()">
+        <span aria-hidden="true">↪</span>
+        Cerrar sesión
+      </button>
     </div>
   </nav>
 }
