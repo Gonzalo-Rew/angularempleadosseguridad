@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { Login } from '../../models/login';
+import { ServiceAuthEmpleados } from '../../services/service.auth.empleados';
 
 @Component({
   selector: 'app-login-component',
@@ -10,6 +11,7 @@ import { Login } from '../../models/login';
   templateUrl: './login-component.html',
 })
 export class LoginComponent {
+  private _serviceAuth: ServiceAuthEmpleados = inject(ServiceAuthEmpleados);
   credenciales: Login = new Login('', '');
   mensajeError: string = '';
   constructor(
@@ -21,7 +23,7 @@ export class LoginComponent {
     try {
       const token = await this._authService.getToken(this.credenciales);
       if (typeof token?.response === 'string' && token.response.trim()) {
-        sessionStorage.setItem('authToken', token.response);
+        await this._serviceAuth.logInEmpleado(token.response);
         this._router.navigate(['/perfil']);
       } else {
         this.mensajeError = 'La respuesta de autenticación no contiene un token válido.';

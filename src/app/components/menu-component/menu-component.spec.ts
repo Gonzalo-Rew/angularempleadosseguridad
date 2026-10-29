@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu-component';
 import { AuthService } from '../../services/auth.service';
+import { EmpleadosService } from '../../services/empleados.service';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -11,7 +12,7 @@ describe('MenuComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [MenuComponent],
       imports: [RouterModule.forRoot([])],
-      providers: [AuthService],
+      providers: [AuthService, EmpleadosService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MenuComponent);

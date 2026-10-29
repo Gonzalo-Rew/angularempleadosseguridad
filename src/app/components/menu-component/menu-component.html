@@ -21,6 +21,11 @@
         >
       </div>
       <button class="btn btn-logout ms-auto" (click)="logout()">
+        @if (usuario()) {
+          <span class="user-name">{{ usuario()?.apellido }}</span>
+        } @else {
+          <span class="user-name">Usuario no autenticado</span>
+        }
         <span aria-hidden="true">↪</span>
         Cerrar sesión
       </button>

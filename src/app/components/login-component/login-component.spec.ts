@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login-component';
 import { AuthService } from '../../services/auth.service';
+import { EmpleadosService } from '../../services/empleados.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -13,7 +14,7 @@ describe('LoginComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
       imports: [FormsModule, RouterModule.forRoot([])],
-      providers: [AuthService, provideHttpClient()],
+      providers: [AuthService, EmpleadosService, provideHttpClient()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);

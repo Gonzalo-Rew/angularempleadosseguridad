@@ -1,8 +1,9 @@
 import { Component, signal, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { AuthService } from '../../services/auth.service';
+import { ServiceAuthEmpleados } from '../../services/service.auth.empleados';
 import { SignalService } from '../../services/service.signal';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menu-component',
@@ -14,6 +15,8 @@ export class MenuComponent {
   protected readonly isAuthenticated = signal(false);
   public _serviceSignal: SignalService = inject(SignalService);
   public contador = this._serviceSignal.contador;
+  public _serviceAuth: ServiceAuthEmpleados = inject(ServiceAuthEmpleados);
+  public usuario = this._serviceAuth.user;
 
   constructor(
     private router: Router,
@@ -26,7 +29,7 @@ export class MenuComponent {
   }
 
   logout(): void {
-    sessionStorage.removeItem('authToken');
+    this._serviceAuth.logOutEmpleado();
     this.router.navigate(['/login']);
     this.isAuthenticated.set(false);
   }
